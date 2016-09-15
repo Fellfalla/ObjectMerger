@@ -17,6 +17,8 @@ This means that at the time of the creation of the needed object information abo
 which looks similar. And here The Object Merger comes to play and does merge the information from the initial object into the needed object.
 
 HOW TO USE:
+```
       var initialInstance = new MyObjectBase(); // Initialize first object
       var properInstance = new MyObjectWithAlgorithms(); // Initialize second object
       var result = ObjectMerger.MergeObjects(properInstance, initialInstance); // Merge Objects into type of "properInstance"
+```
