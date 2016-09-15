@@ -22,14 +22,27 @@ namespace Tapako.ObjectMerger.Extensions
                     : commonBaseClass;
         }
 
+
         /// searching for common base class (either concrete or abstract)
+        /// <returns>null, if no common base type is found</returns>
         public static Type FindBaseClassWith(this Type typeLeft, Type typeRight)
         {
             if (typeLeft == null || typeRight == null) return null;
-
             return typeLeft
                     .GetClassHierarchy()
                     .Intersect(typeRight.GetClassHierarchy())
+                    .FirstOrDefault(type => !type.IsInterface);
+        }
+
+        /// searching for common base class (either concrete or abstract)
+        /// in opposite to <see cref="FindBaseClassWith"/> this method looks for generic types.
+        /// <returns>null, if no common base type is found</returns>
+        public static Type FindGenericBaseClassWith(this Type typeLeft, Type typeRight)
+        {
+            if (typeLeft == null || typeRight == null) return null;
+            return typeLeft
+                    .GetGenericClassHierarchy()
+                    .Intersect(typeRight.GetGenericClassHierarchy())
                     .FirstOrDefault(type => !type.IsInterface);
         }
 
@@ -70,6 +83,29 @@ namespace Tapako.ObjectMerger.Extensions
                 typeInHierarchy = typeInHierarchy.BaseType;
             }
             while (typeInHierarchy != null && !typeInHierarchy.IsInterface);
-        } 
+        }
+
+
+        /// <summary>
+        /// Equal to <see cref="GetClassHierarchy"/> except from types why are constructed from generic types.
+        /// Those types will be returned as generic types, not as constructed types.
+        /// </summary>
+        /// <returns></returns>
+        public static IEnumerable<Type> GetGenericClassHierarchy(this Type type)
+        {
+            return type.GetClassHierarchy().Select(baseType =>
+            {
+                if (baseType.IsGenericType)
+                {
+                    return baseType.GetGenericTypeDefinition();
+                }
+                else
+                {
+                    return baseType;
+                }
+
+            });
+        }
+
     }
 }

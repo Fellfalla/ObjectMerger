@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using Akomi.Logger;
 using ExtensionMethodsCollection;
+using Tapako.ObjectMerger.Extensions;
 
 namespace Tapako.ObjectMerger
 {
@@ -27,6 +29,12 @@ namespace Tapako.ObjectMerger
         {
             typeof(Guid),
             typeof(string),
+        };
+
+        public static readonly List<Type> SpecialIEnumberables = new List<Type>()
+        {
+            typeof(List<>),
+            typeof(ObservableCollection<>),
         };
 
         /// <summary>
@@ -93,7 +101,18 @@ namespace Tapako.ObjectMerger
             {
                 yield break;
             }
-            else if (Item is IEnumerable && Item.GetType().Assembly.GetName().Name == "mscorlib")
+            else if (
+                // handle all IEnumberable types from mscorlib as IEnumberables
+                (Item is IEnumerable && Item.GetType().Assembly.GetName().Name == "mscorlib") ||
+                // handle all generic types, which derive from special IEnumerables as IEnumberable
+                (Item.GetType().IsGenericType && SpecialIEnumberables.Any(type => type.IsAssignableFrom(Item.GetType().GetGenericTypeDefinition()))) ||
+                // handle all self-defined-non-generic types, which derive from special IEnumerables as IEnumberable
+                (SpecialIEnumberables.Any(type =>
+                {
+                    var baseType = Item.GetType().FindGenericBaseClassWith(type);
+                    return baseType != null && typeof(IEnumerable).IsAssignableFrom(baseType);
+                }))
+                    )
             {
                 foreach (var listEntry in (IEnumerable)Item)
                 {
