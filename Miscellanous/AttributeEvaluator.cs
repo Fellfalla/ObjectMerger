@@ -4,7 +4,7 @@ using System.Reflection;
 using Akomi.InformationModel.Attributes;
 using ExtensionMethodsCollection;
 
-namespace Tapako.DeviceInformationManagement.Miscellanous
+namespace Tapako.ObjectMerger.Miscellanous
 {
     internal static class AttributeEvaluator
     {

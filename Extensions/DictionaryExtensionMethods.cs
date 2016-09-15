@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Tapako.DeviceInformationManagement.Extensions
+namespace Tapako.ObjectMerger.Extensions
 {
     /// <summary>
     /// Extension Methods for <see cref="Dictionary{TKey,TValue}"/>

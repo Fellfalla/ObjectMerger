@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Tapako.DeviceInformationManagement.Extensions
+namespace Tapako.ObjectMerger.Extensions
 {
     /// <summary>
     /// This Extension extends Type to be able to find the nearest common Type of 2 Types

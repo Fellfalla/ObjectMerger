@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 using Akomi.InformationModel.Attributes;
 using Akomi.Logger;
 using ExtensionMethodsCollection;
-using Tapako.DeviceInformationManagement.Extensions;
-using Tapako.DeviceInformationManagement.Miscellanous;
+using Tapako.ObjectMerger.Extensions;
+using Tapako.ObjectMerger.Miscellanous;
 
-namespace Tapako.DeviceInformationManagement
+namespace Tapako.ObjectMerger
 {
     /// <summary>
     /// Dieser Klasse übernimmt das Zusammenführen von Informationen 2er Klasseninstanzen in eine einzige Instanz.

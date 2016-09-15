@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace Tapako.DeviceInformationManagement.Extensions
+namespace Tapako.ObjectMerger.Extensions
 {
     /// <summary>
     /// Extensions for PropertyInfos

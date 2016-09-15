@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Text;
 using Akomi.Logger;
 using ExtensionMethodsCollection;
 
-namespace Tapako.DeviceInformationManagement
+namespace Tapako.ObjectMerger
 {
     /// <summary>
     /// This item is used to create a hierarchy representation of a object hierarchy
@@ -18,6 +19,15 @@ namespace Tapako.DeviceInformationManagement
         /// List of recursions pointing to <see cref="Item"/>
         /// </summary>
         public readonly List<ObjectTreeItem> RecursionObjectTreeItems = new List<ObjectTreeItem>();
+
+        /// <summary>
+        /// This list contains special types which will not be parsed for any childs
+        /// </summary>
+        public static readonly List<Type> TypesNotToParse = new List<Type>() // what is with structs ?
+        {
+            typeof(Guid),
+            typeof(string),
+        };
 
         /// <summary>
         /// Default Constructor
@@ -70,12 +80,28 @@ namespace Tapako.DeviceInformationManagement
 
         private IEnumerable<ObjectTreeItem> CreateChildLayer()
         {
+
             if (Item == null)
             {
                 yield break;
             }
-            else if (Item.GetType().IsPrimitive || Item is string)
+            else if (Item.GetType().IsPrimitive)
             {
+                yield break;
+            }
+            else if (TypesNotToParse.Any(type => type == Item.GetType()))
+            {
+                yield break;
+            }
+            else if (Item is IEnumerable && Item.GetType().Assembly.GetName().Name == "mscorlib")
+            {
+                foreach (var listEntry in (IEnumerable)Item)
+                {
+                    var childTreeItem = new ObjectTreeItem(listEntry);
+                    childTreeItem.Parent = this;
+                    //childTreeItem.MemberInfo = fieldInfo;
+                    yield return childTreeItem;
+                }
                 yield break;
             }
 
@@ -128,6 +154,8 @@ namespace Tapako.DeviceInformationManagement
         /// </summary>
         public MemberInfo MemberInfo;
 
+        //public string MemberName
+
         /// <summary>
         /// Objects this treeItem contains
         /// </summary>
@@ -165,7 +193,7 @@ namespace Tapako.DeviceInformationManagement
         public string ToFormattedString(int ident = 0, int limit = 10)
         {
             var builder = new StringBuilder();
-            string browseName;
+            string browseName = "Null", varName = "root", typeName = "unknown type", memberType = "unknown member type";
             string identation = "";
 
             // Create identation
@@ -178,22 +206,26 @@ namespace Tapako.DeviceInformationManagement
             builder.Append(ident.ToString("0 "));
 
             // Add Item Name
-            if (Item == null)
+            if (MemberInfo != null)
             {
-                browseName = "Null";
-            }
-            else
-            {
-                if (MemberInfo != null)
+                varName = MemberInfo.Name;
+                memberType = MemberInfo.MemberType.ToString();
+                if (MemberInfo is PropertyInfo)
                 {
-                    browseName = string.Format("{0} ({1}, {2})", Item, Item.GetType().Name, MemberInfo.MemberType);
+                    typeName = ((PropertyInfo) MemberInfo).PropertyType.Name;
                 }
-                else
+                if (MemberInfo is FieldInfo)
                 {
-                    browseName = string.Format("{0} ({1})", Item, Item.GetType().Name);
+                    typeName = ((FieldInfo)MemberInfo).FieldType.Name;
                 }
             }
-            builder.AppendLine(browseName);
+            if (Item != null)
+            {
+                browseName = Item.ToString();
+                typeName = Item.GetType().Name;
+            }
+
+            builder.AppendLine(string.Format("{0} {1} ({2}, {3})", varName + ": ", browseName, typeName, memberType));
 
             // Add child tree
             foreach (var objectTreeItem in Childs)

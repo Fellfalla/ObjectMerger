@@ -2,7 +2,7 @@
 using Akomi.Logger;
 using KellermanSoftware.CompareNetObjects;
 
-namespace Tapako.DeviceInformationManagement.Extensions
+namespace Tapako.ObjectMerger.Extensions
 {
     /// <summary>
     /// Extension methods for objects

@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace Tapako.DeviceInformationManagement.Miscellanous
+namespace Tapako.ObjectMerger.Miscellanous
 {
     /// <summary>
     /// Source: http://blog.functionalfun.net/2009/10/getting-methodinfo-of-generic-method.html

@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Tapako.DeviceInformationManagement.Extensions;
+using Tapako.ObjectMerger.Extensions;
 
-namespace Tapako.DeviceInformationManagement.Miscellanous
+namespace Tapako.ObjectMerger.Miscellanous
 {
     /// <summary>
     /// This Class holds some Additional functionalities to Merge Objects
