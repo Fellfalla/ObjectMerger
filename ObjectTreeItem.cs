@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Text;
 using Akomi.Logger;
@@ -23,17 +24,24 @@ namespace Tapako.ObjectMerger
         public readonly List<ObjectTreeItem> RecursionObjectTreeItems = new List<ObjectTreeItem>();
 
         /// <summary>
-        /// This list contains special types which will not be parsed for any childs
+        /// This list contains special types which will not be parsed for any childs.
+        /// Even types that are assignable from those types wont be parsed.
         /// </summary>
         public static readonly List<Type> TypesNotToParse = new List<Type>() // what is with structs ?
         {
+            // todo: Add converter
             typeof(Guid),
             typeof(string),
+            typeof(IPAddress),
+            typeof(Delegate),
+            typeof(MemberInfo),
+            typeof(Assembly),
         };
 
         public static readonly List<Type> SpecialIEnumberables = new List<Type>()
         {
             typeof(List<>),
+            typeof(Array),
             typeof(ObservableCollection<>),
         };
 
@@ -98,6 +106,10 @@ namespace Tapako.ObjectMerger
                 yield break;
             }
             else if (TypesNotToParse.Any(type => type == Item.GetType()))
+            {
+                yield break;
+            }
+            else if (TypesNotToParse.Any(type => type.IsInstanceOfType(Item)))
             {
                 yield break;
             }
