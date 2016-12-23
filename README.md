@@ -1,4 +1,7 @@
 # ObjectMerger
+
+<a href="https://www.myget.org/"><img src="https://www.myget.org/BuildSource/Badge/fellfeed?identifier=17573ff1-a05b-422c-a723-a12e4f092444" alt="fellfeed MyGet Build Status" /></a>
+
 This project was created during a research project called AKOMI.
 
 The Object Merger is a Algorithm located in the a Subproject of AKOMI called "Tapako".
