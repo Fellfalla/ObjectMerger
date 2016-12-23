@@ -7,6 +7,7 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
+    <licenceUrl>https://raw.githubusercontent.com/Fellfalla/ObjectMerger/master/LICENSE</licenceUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes></releaseNotes>
