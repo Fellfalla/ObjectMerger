@@ -39,9 +39,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\TapakoSolutionInfo.cs">
-      <Link>Properties\TapakoSolutionInfo.cs</Link>
-    </Compile>
     <Compile Include="Attributes\BoolAttributeBase.cs" />
     <Compile Include="Attributes\DuplicatesAllowed.cs" />
     <Compile Include="Attributes\IgnoreAtMerging.cs" />
@@ -67,7 +64,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /Y /F "$(TargetPath)" "$(SolutionDir)..\..\04_Systemintegration\$(TargetFileName)*"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -8,11 +8,12 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Tapako.ObjectMerger")]
 [assembly: AssemblyDescription("This package can be used to merge two similar c#-objects into a signle one.")]
 [assembly: AssemblyConfiguration("")]
-//[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Tapako.ObjectMerger")]
-//[assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+
+[assembly: AssemblyCompany("Markus Weber")]
+[assembly: AssemblyCopyright("Copyright © Markus Weber 2016")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
