@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tapako.ObjectMerger", "Tapako.ObjectMerger\Tapako.ObjectMerger.csproj", "{EBD11187-2BF8-4788-A641-271874842F35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tapako.ObjectMergerTests", "Tapako.ObjectMerger.Tests\Tapako.ObjectMergerTests.csproj", "{DA822C96-FD47-4F19-8AFF-66E6C272FE6B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tapako.ObjectMerger.Tests", "Tapako.ObjectMerger.Tests\Tapako.ObjectMerger.Tests.csproj", "{DA822C96-FD47-4F19-8AFF-66E6C272FE6B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
