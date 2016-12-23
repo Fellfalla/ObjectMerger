@@ -39,10 +39,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\BoolAttributeBase.cs" />
-    <Compile Include="Attributes\DuplicatesAllowed.cs" />
-    <Compile Include="Attributes\IgnoreAtMerging.cs" />
-    <Compile Include="Attributes\IsMergeable.cs" />
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
     <Compile Include="Extensions\CommonTypeFinderExtension.cs" />
     <Compile Include="Extensions\DictionaryExtensionMethods.cs" />
     <Compile Include="Extensions\ObjectExtension.cs" />
@@ -64,6 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tapako.ObjectMerger.Attributes\Tapako.ObjectMerger.Attributes.csproj">
+      <Project>{5ded259f-7939-4850-8a53-25bc0725dedc}</Project>
+      <Name>Tapako.ObjectMerger.Attributes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

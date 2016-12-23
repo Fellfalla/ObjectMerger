@@ -81,6 +81,10 @@
     <Compile Include="UnmergableClassForDimTestsTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Tapako.ObjectMerger.Attributes\Tapako.ObjectMerger.Attributes.csproj">
+      <Project>{5DED259F-7939-4850-8A53-25BC0725DEDC}</Project>
+      <Name>Tapako.ObjectMerger.Attributes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tapako.ObjectMerger\Tapako.ObjectMerger.csproj">
       <Project>{ebd11187-2bf8-4788-a641-271874842f35}</Project>
       <Name>Tapako.ObjectMerger</Name>

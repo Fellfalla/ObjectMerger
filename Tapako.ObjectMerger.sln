@@ -1,11 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.25920.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tapako.ObjectMerger", "Tapako.ObjectMerger\Tapako.ObjectMerger.csproj", "{EBD11187-2BF8-4788-A641-271874842F35}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tapako.ObjectMerger.Tests", "Tapako.ObjectMerger.Tests\Tapako.ObjectMerger.Tests.csproj", "{DA822C96-FD47-4F19-8AFF-66E6C272FE6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tapako.ObjectMerger.Attributes", "Tapako.ObjectMerger.Attributes\Tapako.ObjectMerger.Attributes.csproj", "{5DED259F-7939-4850-8A53-25BC0725DEDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B8B1C8A0-4532-4E16-914F-0A5961EA383F}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionInfo.cs = SolutionInfo.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +28,10 @@ Global
 		{DA822C96-FD47-4F19-8AFF-66E6C272FE6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA822C96-FD47-4F19-8AFF-66E6C272FE6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA822C96-FD47-4F19-8AFF-66E6C272FE6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DED259F-7939-4850-8A53-25BC0725DEDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DED259F-7939-4850-8A53-25BC0725DEDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DED259F-7939-4850-8A53-25BC0725DEDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DED259F-7939-4850-8A53-25BC0725DEDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
