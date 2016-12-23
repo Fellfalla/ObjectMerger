@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Tapako.ObjectMerger")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("This package can be used to merge two similar c#-objects into a signle one.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+//[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Tapako.ObjectMerger")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+//[assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

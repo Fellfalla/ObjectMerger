@@ -6,9 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using Akomi.InformationModel.Attributes;
-using Akomi.Logger;
-using ExtensionMethodsCollection;
+using Tapako.ObjectMerger.Attributes;
 using Tapako.ObjectMerger.Extensions;
 using Tapako.ObjectMerger.Miscellanous;
 
@@ -145,7 +143,7 @@ namespace Tapako.ObjectMerger
                 // If destination is default constructed, do copy new one
                 if (destination.IsDefaultConstructed() && !source.IsDefaultConstructed())
                 {
-                    Logger.Debug("Overriding \"{0}\" with new value \"{1}\"", destination, source);
+                    ObjectMergerLogger.GetInstance().Debug("Overriding \"{0}\" with new value \"{1}\"", destination, source);
                     return (T1) source;
                 }
 
@@ -190,7 +188,7 @@ namespace Tapako.ObjectMerger
                 string parentString = parent != null ? parent.ToString() : "unknown parent";
                 string memberString = ((MemberInfo) source).Name;
 
-                Logger.Warning("Member info \"{0}\" in \"{1}\" was copied", memberString, parentString);
+                ObjectMergerLogger.GetInstance().Warning("Member info \"{0}\" in \"{1}\" was copied", memberString, parentString);
                 result = (T1) source;
             }
 
@@ -200,7 +198,7 @@ namespace Tapako.ObjectMerger
                 string parentString = parent != null ? parent.ToString() : "unknown parent";
                 string memberString = ((Delegate) source).Method.Name;
 
-                Logger.Warning(
+                ObjectMergerLogger.GetInstance().Warning(
                     "Member info \"{0}\" in \"{1}\" was copied. \n The Reference to its original parent may remain.",
                     memberString, parentString);
                 result = (T1) source;
@@ -416,7 +414,7 @@ namespace Tapako.ObjectMerger
             }
             catch (Exception exception)
             {
-                Logger.Error(exception.ToString(true));
+                ObjectMergerLogger.GetInstance().Error(exception);
             }
         }
     }

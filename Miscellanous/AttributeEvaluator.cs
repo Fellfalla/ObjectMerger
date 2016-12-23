@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Akomi.InformationModel.Attributes;
-using ExtensionMethodsCollection;
+using Tapako.ObjectMerger.Attributes;
+using Tapako.ObjectMerger.Extensions;
 
 namespace Tapako.ObjectMerger.Miscellanous
 {

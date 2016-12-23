@@ -31,44 +31,44 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Akomi.InformationModel">
-      <HintPath>..\..\..\..\Informationsmodell\04_Systemintegration\Akomi.InformationModel.dll</HintPath>
-    </Reference>
-    <Reference Include="Akomi.Logger">
-      <HintPath>..\..\..\..\Sonstiges\04_Systemintegration\Akomi.Logger.dll</HintPath>
-    </Reference>
-    <Reference Include="ExtensionMethodsCollection">
-      <HintPath>..\..\..\..\Sonstiges\04_Systemintegration\ExtensionMethodsCollection.dll</HintPath>
-    </Reference>
-    <Reference Include="KellermanSoftware.Compare-NET-Objects, Version=3.5.0.0, Culture=neutral, PublicKeyToken=d970ace04cc85217, processorArchitecture=MSIL">
-      <HintPath>..\packages\CompareNETObjects.3.05.0.0\lib\net45\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
+    <Reference Include="KellermanSoftware.Compare-NET-Objects, Version=3.6.0.0, Culture=neutral, PublicKeyToken=d970ace04cc85217, processorArchitecture=MSIL">
+      <HintPath>..\packages\CompareNETObjects.3.06.0.0\lib\net45\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\TapakoSolutionInfo.cs">
+      <Link>Properties\TapakoSolutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Attributes\BoolAttributeBase.cs" />
+    <Compile Include="Attributes\DuplicatesAllowed.cs" />
+    <Compile Include="Attributes\IgnoreAtMerging.cs" />
+    <Compile Include="Attributes\IsMergeable.cs" />
     <Compile Include="Extensions\CommonTypeFinderExtension.cs" />
     <Compile Include="Extensions\DictionaryExtensionMethods.cs" />
     <Compile Include="Extensions\ObjectExtension.cs" />
     <Compile Include="Extensions\PropertyInfoExtension.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="IObjectMergerLogger.cs" />
     <Compile Include="Miscellanous\AttributeEvaluator.cs" />
     <Compile Include="Miscellanous\MergingHelper.cs" />
     <Compile Include="Miscellanous\SymbolExtensions.cs" />
     <Compile Include="ObjectMerger.cs" />
+    <Compile Include="ObjectMergerLogger.cs" />
     <Compile Include="ObjectTreeItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AppReadme\Compare-NET-Objects-Help.chm" />
     <None Include="packages.config" />
+    <None Include="Tapako.ObjectMerger.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /Y /F "$(TargetPath)" "$(SolutionDir)..\..\04_Systemintegration\$(TargetFileName)*"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

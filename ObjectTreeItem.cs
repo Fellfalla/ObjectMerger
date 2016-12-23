@@ -7,8 +7,6 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Text;
-using Akomi.Logger;
-using ExtensionMethodsCollection;
 using Tapako.ObjectMerger.Extensions;
 
 namespace Tapako.ObjectMerger
@@ -165,7 +163,7 @@ namespace Tapako.ObjectMerger
                 }
                 catch (Exception exception)
                 {
-                    Logger.Error(exception.ToString(true));
+                    ObjectMergerLogger.GetInstance().Error(exception);
                 }
 
                 var childTreeItem = new ObjectTreeItem(childValue);

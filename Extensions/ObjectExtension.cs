@@ -1,5 +1,4 @@
 ﻿using System;
-using Akomi.Logger;
 using KellermanSoftware.CompareNetObjects;
 
 namespace Tapako.ObjectMerger.Extensions
@@ -7,7 +6,7 @@ namespace Tapako.ObjectMerger.Extensions
     /// <summary>
     /// Extension methods for objects
     /// </summary>
-    public static class ObjectExtensions
+    internal static class ObjectExtensions
     {
         /// <summary>
         /// Returns a bool which depends on the objects content.
@@ -31,7 +30,7 @@ namespace Tapako.ObjectMerger.Extensions
             }
             catch (MemberAccessException)
             {
-                Logger.Debug(
+                ObjectMergerLogger.GetInstance().Debug(
                     "Cannot test if instance of \"{0}\" was default constructed due to access limitations of \"{1}\".",
                     obj, obj.GetType().Name);
             }
