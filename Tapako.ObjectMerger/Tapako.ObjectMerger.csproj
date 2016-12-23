@@ -62,6 +62,9 @@
     <None Include="packages.config" />
     <None Include="Tapako.ObjectMerger.nuspec" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
