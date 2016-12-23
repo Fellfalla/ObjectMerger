@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace Tapako.ObjectMerger
 {
-    internal class ObjectMergerLogger : IObjectMergerLogger
+    public class ObjectMergerLogger : IObjectMergerLogger
     {
         private static IObjectMergerLogger _instance;
 
