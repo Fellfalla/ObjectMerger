@@ -8,6 +8,8 @@
     <authors>$author$</authors>
     <owners>$author$</owners>
     <licenseUrl>https://raw.githubusercontent.com/Fellfalla/ObjectMerger/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/Fellfalla/ObjectMerger</projectUrl>
+    <iconUrl>https://github.com/Fellfalla/ObjectMerger/raw/master/Icon_64x64.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes></releaseNotes>
