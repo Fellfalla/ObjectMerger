@@ -6,7 +6,7 @@
 <a href="https://www.myget.org/"><img src="https://www.myget.org/BuildSource/Badge/fellfeed?identifier=17573ff1-a05b-422c-a723-a12e4f092444" alt="fellfeed MyGet Build Status" /></a>
 
 NuGet-Packages:
-<a href="https://www.nuget.org/packages/Tapako.ObjectMerger/0.5.0.3">
+<a href="https://www.nuget.org/packages/Tapako.ObjectMerger/">
       ObjectMerger
 </a>
 
