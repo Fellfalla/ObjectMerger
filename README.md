@@ -12,20 +12,15 @@ NuGet-Packages:
 
 This project was created during a research project called AKOMI.
 
-The Object Merger is a Algorithm located in the a Subproject of AKOMI called "Tapako".
+The Object Merger is the subproject of a research project called AKOMI.
 
-Object Merger is used to combine informations, which are stored in properties and fields of different instances with a common class type.
-This is needed, because in contrast to Properties and Fields Methods cannot be copied from one object into another.
-As a result developers are able to create multiple instances seperately from each other and merge/combine/fusion them later on into a 
-object that has appropriate Methods implemented.
+The Object Merger is used to merge values, which are stored in properties and fields of different instances with a common class type.
+As a result, one can create multiple instances seperately from each other and merge/combine/fusion them later into a single object. Behind the scenes, reflection is used for that.
 
 
 Example:
-A need in Tapako is to create virtual representations of real devices without having all methods implemented in the firstly instanciated object,
-because at this time the containing assembly of a needed class or the class itself is unknown or not accessible.
-Therefore the needed class types which contain the fully implemented Methods are gathered from external and unknown Assemblys later on.
-This means that at the time of the creation of the needed object information about that object already exist, but are stored in a object 
-which looks similar. And here The Object Merger comes to play and does merge the information from the initial object into the needed object.
+One requirement within the research project is to be able to create virtual representations of real devices without having all methods implemented in the firstly instanciated object, because at this time the containing assembly of a needed class or the class itself is unknown or not accessible.
+The final class type, which contains the full implementation, can be gathered from external and unknown assemblies later on. Here, the Object Merger comes into play and merges the information from the initial instance into the final class instance.
 
 HOW TO USE:
 ```
